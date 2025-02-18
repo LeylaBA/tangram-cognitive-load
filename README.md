@@ -5,6 +5,15 @@ Internship project
 
 ## Getting started
 
+Create the following directory structure:
+
+```
+- data
+  - input
+  - working
+  - output
+```
+
 Create a virtual environment:
 
 ```bash
