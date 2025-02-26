@@ -18,7 +18,7 @@ def extract_fixations(
     Parameters
     ----------
     data : pd.DataFrame
-        The gaze data to detect fixations in.
+        Dataframe containing gaze points in 3D.
     min_points_per_fixation : int, optional
         The minimum number of points required to start counting a fixation. Determined by the minimum duration of a fixation (~0.08 s)
         multiplied by the sampling rate of the eye tracker.
@@ -28,9 +28,9 @@ def extract_fixations(
         The maximum size of a fixation in pixels.
     """
     timestamps = data["timestamp"].values
-    gaze_x = data["x"].values
-    gaze_y = data["y"].values
-    gaze_z = data["z"].values
+    gaze_x = data["direction_x"].values
+    gaze_y = data["direction_y"].values
+    gaze_z = data["direction_z"].values
     gaze_origin = data[["origin_x", "origin_y", "origin_z"]].values
 
     gaze_points_queue = {"timestamps": [], "X": [], "Y": [], "Z": [], "origin": []}
